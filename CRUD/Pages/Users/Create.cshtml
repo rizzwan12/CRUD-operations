@@ -1,0 +1,54 @@
+﻿@page
+@model CRUD.Pages.Users.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>User</h4>
+<hr />
+<div class="p-3 mb-2 bg-info">
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="User.EmployeeID" class="control-label"></label>
+                <input asp-for="User.EmployeeID" class="form-control" />
+                <span asp-validation-for="User.EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.EmployeeName" class="control-label"></label>
+                <input asp-for="User.EmployeeName" class="form-control" />
+                <span asp-validation-for="User.EmployeeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Designation" class="control-label"></label>
+                <input asp-for="User.Designation" class="form-control" />
+                <span asp-validation-for="User.Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Place" class="control-label"></label>
+                <input asp-for="User.Place" class="form-control" />
+                <span asp-validation-for="User.Place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+</div>
+<br >
+<br >
+
+<footer><marquee><p class="text-success">You can add New Employee Detail Here</p></marquee></footer>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

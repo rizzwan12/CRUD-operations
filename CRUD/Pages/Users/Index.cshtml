@@ -1,0 +1,60 @@
+﻿@page
+@model CRUD.Pages.Users.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Details</h1>
+<br >
+
+<br >
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<div class="p-3 mb-2 bg-light text-dark">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Place)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.User) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+<footer><marquee>This is the Employee details.It can be viewed,modified and deleted</marquee></footer>
